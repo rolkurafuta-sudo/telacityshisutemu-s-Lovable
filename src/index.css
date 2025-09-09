@@ -1,0 +1,309 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GTA V NUI Gaming Design System */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Dark Gaming Theme */
+    --background: 220 15% 8%;
+    --foreground: 60 9.1% 97.8%;
+
+    --card: 220 14% 12%;
+    --card-foreground: 60 9.1% 97.8%;
+
+    --popover: 220 14% 12%;
+    --popover-foreground: 60 9.1% 97.8%;
+
+    /* Primary - Military Orange */
+    --primary: 25 95% 53%;
+    --primary-foreground: 220 15% 8%;
+
+    /* Secondary - Tactical Blue */
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 220 15% 8%;
+
+    /* Muted - Dark Gray */
+    --muted: 220 13% 18%;
+    --muted-foreground: 220 8.9% 46.1%;
+
+    /* Accent - Success Green */
+    --accent: 142 76% 36%;
+    --accent-foreground: 60 9.1% 97.8%;
+
+    /* Destructive - Red Alert */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+
+    --border: 220 13% 18%;
+    --input: 220 13% 18%;
+    --ring: 25 95% 53%;
+
+    --radius: 0.75rem;
+
+    /* Gaming UI Colors */
+    --gaming-bg-primary: 220 15% 8%;
+    --gaming-bg-secondary: 220 14% 12%;
+    --gaming-bg-tertiary: 220 13% 18%;
+    
+    --gaming-accent-orange: 25 95% 53%;
+    --gaming-accent-blue: 217 91% 60%;
+    --gaming-accent-green: 142 76% 36%;
+    --gaming-accent-red: 0 84% 60%;
+    --gaming-accent-purple: 263 70% 50%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--gaming-accent-orange)) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--gaming-accent-blue)) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(142 76% 45%) 100%);
+    --gradient-danger: linear-gradient(135deg, hsl(var(--destructive)) 0%, hsl(0 84% 70%) 100%);
+    
+    /* Gaming Shadows */
+    --shadow-glow-primary: 0 0 20px hsl(var(--primary) / 0.4);
+    --shadow-glow-secondary: 0 0 20px hsl(var(--secondary) / 0.4);
+    --shadow-glow-success: 0 0 20px hsl(var(--accent) / 0.4);
+    --shadow-card: 0 8px 32px hsl(220 15% 4% / 0.8);
+
+    /* Animations */
+    --transition-gaming: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Additional colors for dark mode */
+    --success: 120 100% 40%;
+    --warning: 45 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-rajdhani;
+    font-feature-settings: "liga" 1, "kern" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron font-semibold;
+  }
+}
+
+@layer components {
+  /* Gaming UI Components */
+  .gaming-container {
+    @apply bg-card border border-border rounded-lg shadow-2xl;
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(20px);
+  }
+  
+  .gaming-header {
+    @apply flex items-center justify-between p-6 border-b border-border;
+    background: linear-gradient(90deg, hsl(var(--gaming-bg-secondary)) 0%, hsl(var(--gaming-bg-tertiary)) 100%);
+  }
+  
+  .gaming-card {
+    @apply bg-muted border border-border rounded-lg p-4 transition-all duration-300 cursor-pointer;
+    box-shadow: 0 4px 16px hsl(220 15% 4% / 0.4);
+  }
+  
+  .gaming-card:hover {
+    @apply border-primary;
+    box-shadow: var(--shadow-glow-primary);
+    transform: translateY(-2px);
+  }
+  
+  .gaming-card.selected {
+    @apply border-primary bg-primary/10;
+    box-shadow: var(--shadow-glow-primary);
+  }
+  
+  .gaming-btn-primary {
+    @apply bg-primary text-primary-foreground border-0 font-orbitron font-semibold tracking-wider uppercase;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-glow-primary);
+    transition: var(--transition-gaming);
+  }
+  
+  .gaming-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.6);
+  }
+  
+  .gaming-btn-secondary {
+    @apply bg-secondary text-secondary-foreground border-0 font-orbitron font-semibold tracking-wider uppercase;
+    background: var(--gradient-secondary);
+    box-shadow: var(--shadow-glow-secondary);
+    transition: var(--transition-gaming);
+  }
+  
+  .gaming-btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px hsl(var(--secondary) / 0.6);
+  }
+  
+  .gaming-btn-success {
+    @apply bg-accent text-accent-foreground border-0 font-orbitron font-semibold tracking-wider uppercase;
+    background: var(--gradient-success);
+    box-shadow: var(--shadow-glow-success);
+    transition: var(--transition-gaming);
+  }
+  
+  .gaming-btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px hsl(var(--accent) / 0.6);
+  }
+  
+  .gaming-stat-card {
+    @apply bg-muted border border-border rounded-lg p-4 text-center;
+    background: linear-gradient(135deg, hsl(var(--gaming-bg-secondary)) 0%, hsl(var(--gaming-bg-tertiary)) 100%);
+    box-shadow: 0 4px 16px hsl(220 15% 4% / 0.3);
+  }
+  
+  .gaming-rank-item {
+    @apply flex items-center justify-between p-4 bg-muted border border-border rounded-lg mb-2;
+    background: linear-gradient(90deg, hsl(var(--gaming-bg-secondary)) 0%, hsl(var(--gaming-bg-tertiary)) 100%);
+    transition: var(--transition-gaming);
+  }
+  
+  .gaming-rank-item:hover {
+    @apply border-primary;
+    box-shadow: var(--shadow-glow-primary);
+  }
+  
+  .gaming-notification {
+    @apply fixed top-4 right-4 p-4 rounded-lg font-orbitron font-semibold z-50;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-glow-primary);
+    animation: slideIn 0.3s ease-out;
+  }
+  
+  .gaming-tab {
+    @apply px-6 py-3 font-orbitron font-semibold tracking-wide uppercase border-b-2 border-transparent transition-all duration-300;
+  }
+  
+  .gaming-tab.active {
+    @apply border-primary text-primary;
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.8);
+  }
+  
+  .gaming-tab:hover {
+    @apply text-primary border-primary/50;
+  }
+
+  /* Gaming Input */
+  .gaming-input {
+    @apply bg-background/5 border-primary/30 text-foreground placeholder:text-muted-foreground;
+    @apply focus:border-primary focus:ring-2 focus:ring-primary/20;
+    backdrop-filter: blur(10px);
+  }
+
+  /* Success/Warning colors */
+  .text-success {
+    color: hsl(var(--success));
+  }
+  
+  .text-warning {
+    color: hsl(var(--warning));
+  }
+}
+
+@layer utilities {
+  .font-orbitron {
+    font-family: 'Orbitron', monospace;
+  }
+  
+  .font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
+  }
+  
+  .text-glow-primary {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.8);
+  }
+  
+  .text-glow-secondary {
+    text-shadow: 0 0 10px hsl(var(--secondary) / 0.8);
+  }
+  
+  .text-glow-success {
+    text-shadow: 0 0 10px hsl(var(--accent) / 0.8);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
